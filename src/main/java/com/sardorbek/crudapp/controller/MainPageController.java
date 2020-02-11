@@ -26,8 +26,6 @@ public class MainPageController {
 
 	@PostMapping()
 	public String addUser(@ModelAttribute User user, HttpServletRequest request) {
-		System.out.print(user.getFirstName());
-		System.out.print(user.toString());
 		userRepository.save(user);
 		request.setAttribute("allUsers", userRepository.findAll());
 		return "index";
